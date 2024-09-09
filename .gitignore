@@ -1,0 +1,16 @@
+# macOS is stupid
+.DS_Store
+
+# direnv/Nix
+.direnv/
+result
+
+# Terraform stuff
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+*.tfvars
+
+# Other secrets
+*.pem
