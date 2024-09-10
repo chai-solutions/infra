@@ -21,5 +21,8 @@
   };
   users.groups.chai = {};
 
+  age.identityPaths = ["/var/lib/persistent/agenix_key"];
+  age.secrets.db-vars.file = ../secrets/db-vars.age;
+
   system.stateVersion = "24.05";
 }

@@ -7,6 +7,8 @@
     chai-backend.url = "github:chai-solutions/backend";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = {
@@ -26,6 +28,7 @@
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
+            overlays = with inputs; [agenix.overlays.default];
           };
         };
 
@@ -37,6 +40,7 @@
             terraform
 
             colmena
+            agenix
           ];
         };
       };
@@ -61,7 +65,10 @@
               targetUser = "root";
             };
 
-            imports = [./config/system.nix];
+            imports = [
+              inputs.agenix.nixosModules.age
+              ./config/system.nix
+            ];
           };
         };
       };
