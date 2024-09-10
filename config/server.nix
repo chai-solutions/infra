@@ -11,7 +11,7 @@ in {
     restartIfChanged = true;
 
     environment.APP_ENV = "prod";
-    environment.APP_PORT = "80";
+    environment.APP_PORT = "6969";
 
     serviceConfig = {
       Restart = "always";

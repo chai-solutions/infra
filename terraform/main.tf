@@ -90,6 +90,14 @@ resource "aws_security_group" "api_server_sg" {
   }
 
   ingress {
+    description = "Allow all HTTPS traffic"
+    from_port   = "443"
+    to_port     = "443"
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
     # This may be a bad setting, but since we are using SSH certs
     # only for connecting, we should be all right,
     # All other forms of auth must be disabled in the NixOS

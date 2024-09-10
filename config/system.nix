@@ -24,5 +24,17 @@
   age.identityPaths = ["/var/lib/persistent/agenix_key"];
   age.secrets.db-vars.file = ../secrets/db-vars.age;
 
+  # Reverse proxy and HTTPS certs
+  services.caddy = {
+    enable = true;
+    virtualHosts."api.chai-solutions.org".extraConfig = ''
+      reverse_proxy 127.0.0.1:6969
+    '';
+  };
+
+  # May as well have double firewalls for redundancy. EC2
+  # is already configured with one, but this doesn't hurt.
+  networking.firewall.allowedTCPPorts = [80 443];
+
   system.stateVersion = "24.05";
 }
