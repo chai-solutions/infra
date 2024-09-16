@@ -192,6 +192,9 @@ resource "aws_instance" "api_server" {
   subnet_id              = aws_subnet.public_subnet[count.index].id
   key_name               = aws_key_pair.ec2_access_kp.key_name
   vpc_security_group_ids = [aws_security_group.api_server_sg.id]
+  root_block_device {
+    volume_size = 30
+  }
   tags = {
     Name = "api_server_${count.index}"
   }
