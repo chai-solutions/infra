@@ -33,16 +33,25 @@
           };
         };
 
-        devShells.default = pkgs.mkShell {
-          name = "chai-solutions-infra-shell";
-          packages = with pkgs; [
-            awscli2
-            openssl
-            terraform
+        devShells = let
+          shell = {isCI ? false}:
+            pkgs.mkShell {
+              name = "chai-solutions-infra-shell";
 
-            colmena
-            agenix
-          ];
+              packages = with pkgs;
+                [
+                  awscli2
+                  openssl
+                  colmena
+                ]
+                ++ (pkgs.lib.optionals (!isCI) [
+                  terraform
+                  agenix
+                ]);
+            };
+        in {
+          default = shell {};
+          ci = shell {isCI = true;};
         };
       };
 

@@ -24,4 +24,4 @@ jobs:
       # TODO: add dbmate deploy here
 
       - name: Apply configuration
-        run: nix develop .# -c colmena apply
+        run: nix develop .#ci -c colmena apply
