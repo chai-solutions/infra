@@ -12,6 +12,7 @@
   };
 
   outputs = {
+    self,
     flake-parts,
     nixpkgs,
     ...
@@ -53,7 +54,7 @@
               overlays = [];
             };
             specialArgs = {
-              inherit inputs;
+              inherit inputs self;
             };
           };
 
