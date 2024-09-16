@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  chai = inputs.chai-backend.packages.${pkgs.system}.default;
+  chaid = inputs.chai-backend.packages.${pkgs.system}.default;
   port = "6969";
 in {
   # Reverse proxy and HTTPS certs
@@ -24,7 +24,7 @@ in {
 
     serviceConfig = {
       Restart = "always";
-      ExecStart = "${chai}/bin/chai";
+      ExecStart = "${chaid}/bin/chaid";
       EnvironmentFile = config.age.secrets.db-vars.path;
     };
   };
