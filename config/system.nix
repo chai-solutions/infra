@@ -29,6 +29,17 @@
   # is already configured with one, but this doesn't hurt.
   networking.firewall.allowedTCPPorts = [80 443];
 
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 2d";
+    };
+    optimise = {
+      automatic = true;
+    };
+  };
+
   system.configurationRevision = self.rev or "dirty";
   system.stateVersion = "24.05";
 }
