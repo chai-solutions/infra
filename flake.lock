@@ -28,11 +28,11 @@
         "process-compose-flake": "process-compose-flake"
       },
       "locked": {
-        "lastModified": 1727164642,
-        "narHash": "sha256-uZmrmUhMMxtIKdPidSUus2CoSG1jF8/D/2dxEk/HA3w=",
+        "lastModified": 1729271649,
+        "narHash": "sha256-jbc0fnWULZqVrXkNBUvZMPBWfmmG509zwmtp5HmgtSk=",
         "owner": "chai-solutions",
         "repo": "backend",
-        "rev": "0cd84b6fbdd4ccea4e5bc4767728733eab3c7142",
+        "rev": "7bad3f7aa6323d85a5afc867ddd730e360190f12",
         "type": "github"
       },
       "original": {
