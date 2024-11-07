@@ -25,7 +25,7 @@ in {
     serviceConfig = {
       Restart = "always";
       ExecStart = "${chaid}/bin/chaid";
-      EnvironmentFile = config.age.secrets.db-vars.path;
+      EnvironmentFile = [config.age.secrets.db-vars.path config.age.secrets.onesignal-vars.path];
     };
   };
 }

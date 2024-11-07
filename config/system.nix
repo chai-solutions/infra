@@ -24,6 +24,7 @@
 
   age.identityPaths = ["/var/lib/persistent/agenix_key"];
   age.secrets.db-vars.file = ../secrets/db-vars.age;
+  age.secrets.onesignal-vars.file = ../secrets/onesignal-vars.age;
 
   # May as well have double firewalls for redundancy. EC2
   # is already configured with one, but this doesn't hurt.
